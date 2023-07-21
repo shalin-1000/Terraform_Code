@@ -15,7 +15,11 @@ variable "region" {
 
 }
 
-variable "instance_type" {
+variable "small_instance" {
+  type = string
+}
+
+variable "medium_instance" {
   type = string
 }
 

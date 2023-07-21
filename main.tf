@@ -115,7 +115,7 @@ resource "aws_security_group" "CICDSG" {
 
 resource "aws_instance" "Jenkins" {
   ami                    = var.Linux_ami[var.region]
-  instance_type          = var.instance_type
+  instance_type          = var.small_instance
   key_name               = var.key_name
   subnet_id              = aws_subnet.CICD_Sub1.id
   vpc_security_group_ids = [aws_security_group.CICDSG.id]
@@ -128,7 +128,7 @@ resource "aws_instance" "Jenkins" {
 
 resource "aws_instance" "Sonarqube" {
   ami                    = var.Linux_ami[var.region]
-  instance_type          = var.instance_type
+  instance_type          = var.medium_instance
   key_name               = var.key_name
   subnet_id              = aws_subnet.CICD_Sub1.id
   vpc_security_group_ids = [aws_security_group.CICDSG.id]
@@ -144,7 +144,7 @@ resource "aws_instance" "Sonarqube" {
 
 resource "aws_instance" "Nexus" {
   ami                    = var.Linux_ami[var.region]
-  instance_type          = var.instance_type
+  instance_type          = var.medium_instance
   key_name               = var.key_name
   subnet_id              = aws_subnet.CICD_Sub1.id
   vpc_security_group_ids = [aws_security_group.CICDSG.id]
