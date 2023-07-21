@@ -119,6 +119,7 @@ resource "aws_instance" "Jenkins" {
   key_name               = var.key_name
   subnet_id              = aws_subnet.CICD_Sub1.id
   vpc_security_group_ids = [aws_security_group.CICDSG.id]
+  user_data              = file("${path.module}/Bootstrap_Scripts/jenkins.sh")
   tags = {
     "Name" = "Jenkins"
   }
@@ -131,6 +132,7 @@ resource "aws_instance" "Sonarqube" {
   key_name               = var.key_name
   subnet_id              = aws_subnet.CICD_Sub1.id
   vpc_security_group_ids = [aws_security_group.CICDSG.id]
+  user_data              = file("${path.module}/Bootstrap_Scripts/sonarqube.sh")
   tags = {
     "Name" = "Sonarqube"
   }
@@ -146,6 +148,7 @@ resource "aws_instance" "Nexus" {
   key_name               = var.key_name
   subnet_id              = aws_subnet.CICD_Sub1.id
   vpc_security_group_ids = [aws_security_group.CICDSG.id]
+  user_data              = file("${path.module}/Bootstrap_Scripts/nexus.sh")
   tags = {
     "Name" = "Nexus"
   }
