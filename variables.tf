@@ -3,10 +3,18 @@ variable "availability_zones" {
 
 }
 
-variable "Linux_ami" {
+variable "ubuntu_ami" {
   type = map(any)
   default = {
     "ap-south-1" : "ami-0f5ee92e2d63afc18"
+  }
+}
+
+
+variable "amz_lx_ami" {
+  type = map(any)
+  default = {
+    "ap-south-1" : "ami-006935d9a6773e4ec"
   }
 }
 
